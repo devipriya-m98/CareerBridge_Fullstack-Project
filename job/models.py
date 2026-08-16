@@ -15,15 +15,11 @@ class Category(models.Model):
         return self.title
 
 
-
-
 class Industry(models.Model):
     industry_type =  models.CharField(max_length=30)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     def __str__(self):
         return f"{self.industry_type} - ({self.category.title})"
-
-
 
 
 
@@ -43,7 +39,7 @@ class Job(models.Model):
 
     job_title = models.CharField(max_length=50)
     company_name = models.CharField(max_length=50)
-    company_logo = models.ImageField(upload_to='company_logos')
+    company_logo = models.ImageField(upload_to='company_logos', null=True, blank=True)
     location = models.CharField(max_length=100)
     job_type = models.CharField(max_length=50, choices=jobtype_choices)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

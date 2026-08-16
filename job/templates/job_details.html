@@ -72,7 +72,9 @@
         </div>
         <div class="col-lg-4 col-md-12 col-12">
             <div class="text-center my-3">
-                <img src="/media/{{job.company_logo}}" alt="companylogo" style="width: 35%;">
+                {% if job.company_logo %}
+                <img src="/media/{{job.company_logo}}" alt="companylogo" style="width: 35%;" class="rounded-4">
+                {% endif %}
             </div>
             <div class="border border-info p-3 fw-bold fs-4 text-center rounded-4 bg-color mt-5" style="color: #09453d;">
                 JOB OVERVIEW

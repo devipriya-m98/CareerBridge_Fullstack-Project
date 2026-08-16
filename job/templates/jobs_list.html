@@ -46,7 +46,7 @@
 
 
 
-<div class="container mt-3 mb-5">
+<div class="container mt-3 mb-5 vh-100">
     <div class="row g-4">
         {% for job in jobs %}
 
@@ -63,7 +63,15 @@
 
                     <div class="d-flex align-items-start gap-4">
                         <div class="flex-shrink-0">
-                            <img src="/media/{{ job.company_logo }}" class="rounded company-logo" alt="Company Logo">
+                            {% if job.company_logo %}
+                            <img src="/media/{{ job.company_logo }}" class="img-fluid rounded-circle object-fit-cover" style="width:80px; height:80px;" alt="Company Logo">
+                            {% else %}
+                            <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold"style="width:80px; height:80px; font-size:40px; background-color: #09453d;">
+                                {{ job.company_name|first|upper }}
+                            </div>
+                            {% endif %}
+
+
                         </div>
 
                         <div class="flex-grow-1">
@@ -99,7 +107,13 @@
                     </div>
 
                     <div class="text-end mt-4">
-                        <a href="{% url 'apply_job' job.id %}" class="btn btn-primary fw-bold px-4">Apply</a>
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.role == 1 %}
+                                <a href="{% url 'apply_job' job.id %}" class="btn btn-primary fw-bold px-4">Apply</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-primary fw-bold px-4">Apply</a>
+                        {% endif %}
                     </div>
                     
                 </div>

@@ -49,13 +49,16 @@
 
     <div class="row g-4">
         {% for i in jobs %}
-        <div class="col-lg-6 col-md-8 col-12">
+        <div class="col-lg-6 col-md-12 col-12">
             <div class="card shadow p-4">
                 <div class="d-flex align-items-center justify-content-between mb-3">
-                    <img src="/media/{{ i.company_logo }}" 
-                         class="img-fluid rounded-start" 
-                         style="width:100px;" 
-                         alt="Company Logo">
+                    {% if i.company_logo %}
+                    <img src="/media/{{ i.company_logo }}" class="img-fluid rounded-circle object-fit-cover" style="width:100px; height:100px;" alt="Company Logo">
+                    {% else %}
+                    <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold"style="width:100px; height:100px; font-size:40px; background-color: #09453d;">
+                        {{ i.company_name|first|upper }}
+                    </div>
+                    {% endif %}
 
                     <div class="d-flex gap-3">
                         <a href="{% url 'update_job' i.id%}"><i class="bi bi-pencil-fill fs-5 text-primary"></i></a>
