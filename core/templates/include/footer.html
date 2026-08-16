@@ -1,0 +1,44 @@
+{% load static %}
+
+<footer class="bg-dark text-light pt-4 mt-0">
+    <div class="container pt-2">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-4 col-md-12 mb-3 mt-4">
+                <h5 class="fw-bold"><span class="text-primary">Career</span>Bridge</h5>
+                <p>Connecting job seekers with employers. <br>Find your dream job or hire top talent easily.</p>
+            </div>
+
+            <div class="col-lg-4 col-md-12 mb-3 mt-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="text-light text-decoration-none">Home</a></li>
+                    <li><a href="{% url 'jobs_list' %}" class="text-light text-decoration-none">Jobs</a></li>
+                    <li><a href="{% url 'about' %}" class="text-light text-decoration-none">About Us</a></li>
+                    <li><a href="{% url 'contact' %}" class="text-light text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-12 mb-3 mt-4">
+                <h5 class="fw-bold">Contact Us</h5>
+                <p>Email: support@careerbridge.com</p>
+                <p>Phone: <a href="tel:+91 98765 43210" class="text-decoration-none">+91 98765 43210</a></p>
+                <p><Address>Address: D46, FF Complex, Jhandewalan, Delhi</Address></p>
+                <div class="socialmedia-icons">
+                    <a href="https://www.facebook.com/login/" class="text-light me-4" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://x.com/twitt_login?lang=en" class="text-light me-4" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://www.linkedin.com/login?" class="text-light me-4" target="_blank"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.instagram.com/accounts/login/?hl=en" class="text-light me-4" target="_blank"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-light">
+
+        <div class="text-center pb-3">
+            <p class="mb-0">&copy; 2026 CareerBridge Job Portal. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+

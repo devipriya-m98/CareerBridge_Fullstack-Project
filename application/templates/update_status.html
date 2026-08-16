@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} Status Update | CareerBridge {% endblock title %}
+
+
+{% block content %}
+
+
+
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg border border-dark rounded-4 p-5 text-center" style="max-width: 450px; width: 100%;">
+    <h4 class="fw-bold text-primary mb-4">Update Application Status</h4>
+
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            {% render_field form.status class="form-select fw-semibold border border-dark" %}
+        </div>
+      <button type="submit" class="btn btn-warning px-5 fw-semibold shadow-sm rounded-pill">Update</button>
+    </form>
+  </div>
+</div>
+
+
+
+{% endblock content %} 
+
+
+
+
+
+{% block style %} 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}

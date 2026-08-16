@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Profile completion | CareerBridge </title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo2.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/Logo.png' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+</head>
+
+
+<body>
+
+
+    {% load widget_tweaks %}
+
+    <h2 class="text-center mt-5 fw-bold">Complete Your Profile</h2>
+
+    <div class="container my-5 align-items-center justify-content-center d-flex ">
+
+        <form method="POST" enctype="multipart/form-data" class="p-5 border border-secondary rounded shadow-sm bg-white w-75">
+
+            {% csrf_token %}
+
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12 mb-3">
+                    <label class="form-label fw-semibold">Full Name: </label>
+                    {% render_field form.full_name class="form-control border border-dark-subtle" placeholder="Enter Your Name" %}
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 mb-3">
+                    <label class="form-label fw-semibold">Email:</label>
+                    {% render_field form.email class="form-control border border-dark-subtle" placeholder="example@gmail.com" %}
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 mb-3">
+                    <label class="form-label fw-semibold">Phone:</label>
+                    {% render_field form.phone class="form-control border border-dark-subtle" placeholder="10-digit mobile number" %}
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 mb-3">
+                    <label class="form-label fw-semibold">Location: </label>
+                    {% render_field form.location class="form-control border border-dark-subtle" placeholder="City, State, Country" %}
+                </div>
+                <div class="col-lg-10 col-md-12 col-12 mb-3">
+                    <label class="form-label fw-semibold">Upload Photo: </label>
+                    {% render_field form.profile_photo class="form-control border border-dark-subtle" %}
+                </div>
+            </div>
+
+            <h6 class="fw-bold my-4">COMPANY DETAILS</h6>
+
+            <div class="row">  
+
+                <div class="col-lg-6 col-md-12 col-12 mb-3 mt-2">
+                    <label class="form-label fw-semibold">Company Name:</label>
+                    {% render_field form.company_name class="form-control border border-dark-subtle" %}
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 mb-3">
+                    <label class="form-label fw-semibold">Company Logo:</label>
+                    {% render_field form.company_logo class="form-control border border-dark-subtle" %}
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 mb-3">
+                    <label class="form-label fw-semibold">Company Website:</label>
+                    {% render_field form.company_website class="form-control border border-dark-subtle" %}
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 mb-3">
+                    <label class="form-label fw-semibold">Company Type:</label>
+                    {% render_field form.company_type class="form-control border border-dark-subtle" placeholder='eg:- Private / Public / Government / Startup' %}
+                </div>
+                <div class="col-lg-12 col-md-12 col-12 mb-3">
+                    <label class="form-label fw-semibold">Company Description:</label>
+                    {% render_field form.about_company class="form-control border border-dark-subtle" rows="5" %}
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary px-5 fw-bold my-3">Save Profile</button>
+
+            </div>
+        </form>
+    </div>
+
+
+
+   
+         
+   
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
+

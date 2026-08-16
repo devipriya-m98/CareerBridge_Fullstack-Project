@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} CareerBridge | LogIn {% endblock title %}</title>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/logo2.png' %}">
+
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- BOOTSTRAP ICONS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- FONTAWESOME ICONS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- AOS ANIMATION -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- PAGE SPECIFIC CSS -->
+    {% block extra_css %} {% endblock extra_css %}
+
+</head>
+<body>
+
+
+            <div class="alert-container m-0 p-0">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show text-center fw-bold fs-6" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+
+    <div class="container-fluid login-sec">
+        <div class="container">
+            <div class="row justify-content-center align-items-center min-vh-100">
+                <div class="col-lg-10">
+                    <div class="shadow-lg border-0 overflow-hidden">
+                        <div class="row g-0 align-items-center">
+
+                            <div class="col-lg-5 col-md-12 col-12 text-center p-4">
+                                <img src="{% static 'images/login.png' %}" alt="image" class="img-fluid">
+                            </div>
+
+                            <div class="col-lg-7 col-md-12 col-12 p-5">
+                                <div class="mb-5">
+                                    <p><a href="{% url 'home' %}" class="text-decoration-none fw-bold"><i class="bi bi-arrow-left-short fw-bold"></i> Back to home</a></p>
+                                </div>
+                                <h2 class="fw-bold mb-2">Hey..! Welcome Back👋</h2>
+                                <p class="text-muted mb-4">Login to check your accounts activity</p>
+
+                                <form method="post">
+                                    {% csrf_token %}
+                                    
+                                    <div class="mb-3 input-data">
+                                        <i class="fa-solid fa-user"></i>
+                                        <input type="text" name="u_name" placeholder="Username" required>
+                                    </div>
+
+                                    <div class="mb-3 input-data">
+                                        <i class="fa-solid fa-key"></i>
+                                        <input type="password" name="password" placeholder="Password" required><i class="fa-regular fa-eye-slash"></i>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                        <div>
+                                            <input type="checkbox" id="remember">
+                                            <label for="remember">Remember me</label>
+                                        </div>
+                                        <a href="#" class="text-decoration-none fw-semibold">Forgot Password?</a>
+                                    </div>
+
+                                    <button type="submit" class="btn click-btn w-100 fw-bold py-3">Login</button>
+
+                                    <p class="text-center mt-4">
+                                        Don't have an account?<a href="{% url 'register' %}" class="fw-semibold text-decoration-none"> Register</a>
+                                    </p>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- GLOBAL JS -->
+    <script src=""></script>
+
+    <!-- PAGE SPECIFIC JS -->
+    {% block extra_js %} {% endblock extra_js %}
+
+    <!-- ICONIFY ICON SETS -->
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+
+    <!-- AOS ANIMATION JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+
+
+
+    
+</body>
+</html>

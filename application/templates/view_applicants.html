@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Applicants List | CareerBridge {% endblock title %}
+
+
+{% block content %}
+
+<!--background-->
+
+<div class="container-fluid d-flex align-items-center justify-content-center text-center text-dark page-bg">
+    <div>
+        <h3 class="mb-4 fw-bold fs-1">Applicants List</h3>
+        <nav aria-label="breadcrumb">
+        <!-- <ol class="breadcrumb p-3 mb-0 justify-content-center bg-transparent">
+            <li class="breadcrumb-item">
+            <a href="/" class="text-decoration-none text-primary fw-semibold">Home</a>
+            </li>
+            <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">
+                My application
+            </li>
+        </ol> -->
+        </nav>
+  </div>
+</div>
+
+
+
+
+
+<div class="container mt-5 vh-100">
+        {% if applications %}
+        <h2 class="text-center">Applications for {{ job.job_title }}</h2>
+        <div class="row text-center justify-content-center">
+          <div class="col pt-0 pb-5">
+              <div class="table-responsive-md">
+                  <table class="table mt-5 text-center table-striped table-hover shadow table-bordered border-black">
+                      <thead class="table-danger fw-bold fs-5 table-bordered border-black">
+                          <tr>
+                              <th>Name</th>
+                              <th>Mobile No</th>
+                              <th>E-mail</th>
+                              <th>Resume</th>
+                              <th>Status</th>
+                          </tr>
+                      </thead>
+                      <tbody class="table-group-divider">
+                          {% for i in applications %}
+                          <tr class="fs-6">
+                              <td class="py-3 fw-bold">{{i.full_name}}</td>
+                              <td class="py-3 fw-semibold">{{i.phone}}</td>
+                              <td class="py-3 fw-semibold">{{i.email}}</td>
+                              <td class="py-3 fw-bold"><a href="{{i.resume.url}}" target="_blank" class="text-decoration-none">Download</a></td>
+                              <td class="py-3 fw-bold">
+                                {% if i.status == "Shortlisted" %}
+                                    <span class="badge bg-warning text-dark px-3 py-2">Shortlisted</span>
+                                {% elif i.status == "Rejected" %}
+                                    <span class="badge bg-danger px-3 py-2">Rejected</span>
+                                {% elif i.status == "Accepted" %}
+                                    <span class="badge bg-success px-3 py-2">Accepted</span>
+                                {% else %}
+                                    <span class="badge bg-secondary px-3 py-2">{{ i.status }}</span>
+                                {% endif %}
+                                <a href="/update-status/{{i.id}}" class="small ms-2 text-decoration-none">click here</a>
+                            </td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+        {% else %}
+                <div class="alert alert-primary fw-bold fs-5 shadow-sm text-center m-5">
+                    No Applications yet
+                </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock content %} 
+
+
+
+
+
+{% block style %} 
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
