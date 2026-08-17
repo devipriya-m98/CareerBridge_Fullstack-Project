@@ -46,7 +46,13 @@
 
                     <div class="d-flex align-items-start gap-4">
                         <div class="flex-shrink-0">
-                            <img src="/media/{{ job.company_logo }}" class="rounded company-logo" alt="Company Logo">
+                            {% if job.company_logo %}
+                                <img src="/media/{{ job.company_logo }}" class="img-fluid rounded-circle object-fit-cover" style="width:80px; height:80px;" alt="Company Logo">
+                            {% else %}
+                                <div class="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold"style="width:80px; height:80px; font-size:40px; background-color: #09453d;">
+                                    {{ job.company_name|first|upper }}
+                                </div>
+                            {% endif %}
                         </div>
 
                         <div class="flex-grow-1">

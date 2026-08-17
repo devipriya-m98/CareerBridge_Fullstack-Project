@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('job.urls')),
     path('', include('application.urls')),
     path('', include('profile_app.urls')),
+    path('', include('API.urls')),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
